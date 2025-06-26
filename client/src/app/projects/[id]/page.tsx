@@ -7,13 +7,10 @@ import List from "../ListView";
 import Timeline from "../TimelineView";
 import Table from "../TableView";
 import ModalNewTask from "@/components/ModalNewTask";
+import { use } from "react";
 
-type Props = {
-  params: { id: string };
-};
-
-const Project = ({ params }: Props) => {
-  const { id } = params;
+const Project = ({ params }: { params: Promise<{ id: string }> }) => {
+  const { id } = use(params);
   const [activeTab, setActiveTab] = useState("Board");
   const [isModalNewTaskOpen, setIsModalNewTaskOpen] = useState(false);
 
