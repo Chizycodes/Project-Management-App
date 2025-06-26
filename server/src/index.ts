@@ -7,6 +7,7 @@ import morgan from "morgan";
 /* ROUTE IMPORTS */
 import projectRoutes from "./routes/projectRoutes";
 import taskRoutes from "./routes/taskRoutes";
+import searchRoutes from "./routes/searchRoutes";
 
 /* CONFIGURATIONS */
 dotenv.config();
@@ -26,9 +27,10 @@ app.get("/", (req, res)=> {
 
 app.use("/projects", projectRoutes)
 app.use("/tasks", taskRoutes);
+app.use("/search", searchRoutes)
 
 /* SERVER */
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8001;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 })
