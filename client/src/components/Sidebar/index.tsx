@@ -75,7 +75,7 @@ const Sidebar = () => {
         {/* TEAM */}
         <div className="flex items-center gap-5 border-y-[1.5px] border-gray-200 px-8 py-4 dark:border-gray-700">
           <Image
-            src="https://pm-s3-images.s3.us-east-2.amazonaws.com/logo.png"
+            src="https://pm-s3-images-01.s3.us-east-1.amazonaws.com/logo.png"
             alt="Logo"
             width={40}
             height={40}
@@ -161,12 +161,12 @@ const Sidebar = () => {
           </>
         )}
       </div>
-      <div className="z-10 mt-32 flex w-full flex-col items-center gap-4 bg-white px-8 py-4 dark:bg-black md:hidden">
+      <div className="z-10 mt-32 flex w-full flex-col items-center gap-4 bg-white px-8 py-4 md:hidden dark:bg-black">
         <div className="flex w-full items-center">
           <div className="align-center flex h-9 w-9 justify-center">
             {!!currentUserDetails?.profilePictureUrl ? (
               <Image
-                src={`https://pm-s3-images.s3.us-east-2.amazonaws.com/${currentUserDetails?.profilePictureUrl}`}
+                src={`https://pm-s3-images-01.s3.us-east-1.amazonaws.com/${currentUserDetails?.profilePictureUrl}`}
                 alt={currentUserDetails?.username || "User Profile Picture"}
                 width={100}
                 height={50}
@@ -210,7 +210,7 @@ const SidebarLink = ({ href, icon: Icon, label }: SidebarLinkProps) => {
         } justify-start px-8 py-3`}
       >
         {isActive && (
-          <div className="absolute left-0 top-0 h-[100%] w-[5px] bg-blue-200" />
+          <div className="absolute top-0 left-0 h-[100%] w-[5px] bg-blue-200" />
         )}
 
         <Icon className="h-6 w-6 text-gray-800 dark:text-gray-100" />

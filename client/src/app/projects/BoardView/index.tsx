@@ -88,11 +88,11 @@ const TaskColumn = ({
           className={`w-2 !bg-[${statusColor[status]}] rounded-s-lg`}
           style={{ backgroundColor: statusColor[status] }}
         />
-        <div className="flex w-full items-center justify-between rounded-e-lg bg-white px-5 py-4 dark:bg-dark-secondary">
+        <div className="dark:bg-dark-secondary flex w-full items-center justify-between rounded-e-lg bg-white px-5 py-4">
           <h3 className="flex items-center text-lg font-semibold dark:text-white">
             {status}{" "}
             <span
-              className="ml-2 inline-block rounded-full bg-gray-200 p-1 text-center text-sm leading-none dark:bg-dark-tertiary"
+              className="dark:bg-dark-tertiary ml-2 inline-block rounded-full bg-gray-200 p-1 text-center text-sm leading-none"
               style={{ width: "1.5rem", height: "1.5rem" }}
             >
               {tasksCount}
@@ -103,7 +103,7 @@ const TaskColumn = ({
               <EllipsisVertical size={26} />
             </button>
             <button
-              className="flex h-6 w-6 items-center justify-center rounded bg-gray-200 dark:bg-dark-tertiary dark:text-white"
+              className="dark:bg-dark-tertiary flex h-6 w-6 items-center justify-center rounded bg-gray-200 dark:text-white"
               onClick={() => setIsModalNewTaskOpen(true)}
             >
               <Plus size={16} />
@@ -168,13 +168,13 @@ const Task = ({ task }: TaskProps) => {
       ref={(instance) => {
         drag(instance);
       }}
-      className={`mb-4 rounded-md bg-white shadow dark:bg-dark-secondary ${
+      className={`dark:bg-dark-secondary mb-4 rounded-md bg-white shadow ${
         isDragging ? "opacity-50" : "opacity-100"
       }`}
     >
       {task.attachments && task.attachments.length > 0 && (
         <Image
-          src={`https://pm-s3-images.s3.us-east-2.amazonaws.com/${task.attachments[0].fileURL}`}
+          src={`https://pm-s3-images-01.s3.us-east-1.amazonaws.com/${task.attachments[0].fileURL}`}
           alt={task.attachments[0].fileName}
           width={400}
           height={200}
@@ -218,7 +218,7 @@ const Task = ({ task }: TaskProps) => {
         <p className="text-sm text-gray-600 dark:text-neutral-500">
           {task.description}
         </p>
-        <div className="mt-4 border-t border-gray-200 dark:border-stroke-dark" />
+        <div className="dark:border-stroke-dark mt-4 border-t border-gray-200" />
 
         {/* Users */}
         <div className="mt-3 flex items-center justify-between">
@@ -226,21 +226,21 @@ const Task = ({ task }: TaskProps) => {
             {task.assignee && (
               <Image
                 key={task.assignee.userId}
-                src={`https://pm-s3-images.s3.us-east-2.amazonaws.com/${task.assignee.profilePictureUrl!}`}
+                src={`https://pm-s3-images-01.s3.us-east-1.amazonaws.com/${task.assignee.profilePictureUrl!}`}
                 alt={task.assignee.username}
                 width={30}
                 height={30}
-                className="h-8 w-8 rounded-full border-2 border-white object-cover dark:border-dark-secondary"
+                className="dark:border-dark-secondary h-8 w-8 rounded-full border-2 border-white object-cover"
               />
             )}
             {task.author && (
               <Image
                 key={task.author.userId}
-                src={`https://pm-s3-images.s3.us-east-2.amazonaws.com/${task.author.profilePictureUrl!}`}
+                src={`https://pm-s3-images-01.s3.us-east-1.amazonaws.com/${task.author.profilePictureUrl!}`}
                 alt={task.author.username}
                 width={30}
                 height={30}
-                className="h-8 w-8 rounded-full border-2 border-white object-cover dark:border-dark-secondary"
+                className="dark:border-dark-secondary h-8 w-8 rounded-full border-2 border-white object-cover"
               />
             )}
           </div>
